@@ -19,6 +19,9 @@ public class DocuportConstants {
     public static final String RESET_PASSWORD_EMAIL = "forgotpasswordg1@gmail.com";
 
     public static final String PASSWORD_ADVISOR = "Group1";
+    public static final String PASSWORD_EMPLOYEE = "Group1";
+    public static final String PASSWORD_SUPERVISOR = "Group1";
+
     public static final String PASSWORD = "Group1";
     public static final String USERNAME_ADVISOR = "b1g1_advisor@gmail.com";
     public static final String USERNAME_SUPERVISOR = "b1g1_supervisor@gmail.com";
@@ -33,4 +36,12 @@ public class DocuportConstants {
 
 
     //We use static because it lets us call these by class name
+
+    //waits
+
+    public static final int extraSmall = 3;
+    public static final int Small = 5;
+    public static final int Medium = 7;
+    public static final int large = 10;
+    public static final int extraLarge = 20;
 }
