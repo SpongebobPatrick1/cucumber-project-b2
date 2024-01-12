@@ -1,5 +1,7 @@
 package com.loop.utilities;
 
+import io.cucumber.java.Scenario;
+
 public class DocuportConstants {
 
     public static final String USERNAME_CLIENT = "b1g1_client@gmail.com";
@@ -32,6 +34,9 @@ public class DocuportConstants {
     public static final String CLIENT = "client";
     public static final String SUPERVISOR = "supervisor";
     public static final String EMPLOYEE = "employee";
+
+    public static Scenario scenario;
+
 
 
 
