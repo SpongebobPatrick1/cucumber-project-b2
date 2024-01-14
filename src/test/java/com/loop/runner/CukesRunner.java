@@ -10,8 +10,8 @@ import org.junit.runner.RunWith;
         "json:target/json-reports/json-report.json"},
         features = "src/test/resources/features",
         glue = "com/loop/step_definitions",
-        dryRun = false,
-        tags = "@jaad",
+        dryRun = true,
+        tags = "@smartBear",
         monochrome = true
 )
 public class CukesRunner {

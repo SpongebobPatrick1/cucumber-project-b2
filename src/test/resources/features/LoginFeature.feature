@@ -3,7 +3,7 @@ Feature: Docuport Login Logout Feature
   Background:
     Given user is on Docuport login page
 
-  @smoke @regression
+  @B2G2-259 @B2G2-203 @wip
   Scenario: Login as a client
     When user enters username for "client"
     And user enters password for "client"
@@ -36,6 +36,12 @@ Feature: Docuport Login Logout Feature
     And user clicks login button
     Then user should see the home page for supervisor
     Then user clicks logout button
+  @dataTableMap
+  Scenario: Login as a client practice
+      When user enters credentials
+      |username|b1g1_client@gmail.com|
+      |password|Group1               |
+      Then user should see the home page for client
 
 
 

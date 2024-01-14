@@ -61,4 +61,18 @@ public class GoogleSearchStepDefs {
     }
 
 
+    @When("user searches for the {string}")
+    public void user_searches_for_the(String country) {
+
+        googleSearchPage.searchBox.sendKeys("What is the capital of " + country + Keys.ENTER);
+        //BrowserUtils.justWait(DocuportConstants.extraSmall);
+    }
+    @Then("user should see the {string} in the result")
+    public void user_should_see_the_in_the_result(String capital) {
+        BrowserUtils.takeScreenshot();
+        assertEquals("Expected capital city: " + capital + " does NOT match with actual: " +
+                googleSearchPage.capital.getText(),capital,googleSearchPage.capital.getText());
+    }
+
+
 }

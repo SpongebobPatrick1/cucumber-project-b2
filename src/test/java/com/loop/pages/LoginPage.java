@@ -42,6 +42,27 @@ public class LoginPage {
     @FindBy(xpath = "//div[@class='col col-12']/span[@class='body-2 gray--text']")
     public WebElement userRole;
 
+    /**
+     * logins to docuport
+     * @param username
+     * @param password
+     * @author jaad
+     */
+
+    public void loginDocuport(String username, String password){
+        BrowserUtils.waitForVisibility(usernameInput,DocuportConstants.Small);
+        usernameInput.clear();
+        usernameInput.sendKeys(username);
+        passwordInput.clear();
+        passwordInput.sendKeys(password);
+        BrowserUtils.waitForClickable(loginButton,DocuportConstants.Small);
+        BrowserUtils.justWait(DocuportConstants.Small);
+
+        if(BrowserUtils.waitForVisibility(continueButton,DocuportConstants.Small).isDisplayed()){
+            continueButton.click();
+        }
+
+    }
     public String findUserRole() {
         BrowserUtils.waitForClickable(b1g1, DocuportConstants.large).click();
         BrowserUtils.waitForClickable(profile, DocuportConstants.large).click();
@@ -58,31 +79,31 @@ public class LoginPage {
         }
     }
 
-//    // Method to take a screenshot and save it to a specified directory
-//    public void takeScreenshotAndSave(String screenshotName) {
-//        TakesScreenshot takesScreenshot = (TakesScreenshot) Driver.getDriver();
-//        File sourceFile = takesScreenshot.getScreenshotAs(OutputType.FILE);
-//
-//        // Specify the directory where you want to save the screenshots
-//        String directoryPath = "C:\\Users\\quraa\\Documents\\CucumberScreenshots\\Docuport Login";
-//
-//        // Create the directory if it doesn't exist
-//        File directory = new File(directoryPath);
-//        if (!directory.exists()) {
-//            directory.mkdirs();
-//        }
-//
-//        // Specify the path for the screenshot file
-//        Path targetPath = Path.of(directoryPath, screenshotName + ".png");
-//
-//        try {
-//            // Copy the screenshot to the specified directory
-//            Files.copy(sourceFile.toPath(), targetPath, StandardCopyOption.REPLACE_EXISTING);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//            // Handle the exception as needed
-//        }
-//    }
+    // Method to take a screenshot and save it to a specified directory
+    public void takeScreenshotAndSave(String screenshotName) {
+        TakesScreenshot takesScreenshot = (TakesScreenshot) Driver.getDriver();
+        File sourceFile = takesScreenshot.getScreenshotAs(OutputType.FILE);
+
+        // Specify the directory where you want to save the screenshots
+        String directoryPath = "C:\\Users\\quraa\\Documents\\CucumberScreenshots\\Docuport Login";
+
+        // Create the directory if it doesn't exist
+        File directory = new File(directoryPath);
+        if (!directory.exists()) {
+            directory.mkdirs();
+        }
+
+        // Specify the path for the screenshot file
+        Path targetPath = Path.of(directoryPath, screenshotName + ".png");
+
+        try {
+            // Copy the screenshot to the specified directory
+            Files.copy(sourceFile.toPath(), targetPath, StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Handle the exception as needed
+        }
+    }
 
     public LoginPage() {
         PageFactory.initElements(Driver.getDriver(), this);

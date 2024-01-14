@@ -6,6 +6,11 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.time.Duration;
 import java.util.Set;
 
@@ -185,6 +190,32 @@ public class BrowserUtils {
             Thread.sleep(seconds*1000);
         }catch (InterruptedException e){
             e.printStackTrace();
+        }
+    }
+
+    // Method to take a screenshot and save it to a specified directory
+    public static void takeScreenshotAndSave(String screenshotName) {
+        TakesScreenshot takesScreenshot = (TakesScreenshot) Driver.getDriver();
+        File sourceFile = takesScreenshot.getScreenshotAs(OutputType.FILE);
+
+        // Specify the directory where you want to save the screenshots
+        String directoryPath = "C:\\Users\\quraa\\Documents\\CucumberScreenshots\\Docuport Login";
+
+        // Create the directory if it doesn't exist
+        File directory = new File(directoryPath);
+        if (!directory.exists()) {
+            directory.mkdirs();
+        }
+
+        // Specify the path for the screenshot file
+        Path targetPath = Path.of(directoryPath, screenshotName + ".png");
+
+        try {
+            // Copy the screenshot to the specified directory
+            Files.copy(sourceFile.toPath(), targetPath, StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Handle the exception as needed
         }
     }
 }

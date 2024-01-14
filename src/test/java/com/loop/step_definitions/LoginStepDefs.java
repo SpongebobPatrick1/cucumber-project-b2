@@ -8,6 +8,8 @@ import com.loop.utilities.DocuportConstants;
 import com.loop.utilities.Driver;
 import io.cucumber.java.en.*;
 
+import java.util.Map;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -33,7 +35,10 @@ public class LoginStepDefs {
         BrowserUtils.waitForVisibility(loginPage.continueButton, DocuportConstants.large);
         homePage.continueButton.click();
         BrowserUtils.justWait(2);
+        BrowserUtils.takeScreenshot();
         loginPage.findUserRole();
+        BrowserUtils.takeScreenshot();
+        BrowserUtils.takeScreenshotAndSave("client_profile");
         assertEquals("User role: " + loginPage.userRole.getText() + " is not visible", loginPage.userRole.getText().toLowerCase(), DocuportConstants.CLIENT);
     }
 
@@ -72,6 +77,7 @@ public class LoginStepDefs {
         switch (arg0){
             case "client":
                 loginPage.usernameInput.sendKeys(DocuportConstants.USERNAME_CLIENT);
+                BrowserUtils.takeScreenshotAndSave("client_username");
                 break;
             case "employee":
                 loginPage.usernameInput.sendKeys(DocuportConstants.USERNAME_EMPLOYEE);
@@ -90,24 +96,41 @@ public class LoginStepDefs {
     @And("user enters password for {string}")
     public void userEntersPasswordFor(String arg0) {
         BrowserUtils.waitForClickable(loginPage.passwordInput, DocuportConstants.large).click();
-        switch (arg0){
+        switch (arg0) {
             case "client":
                 loginPage.passwordInput.sendKeys(DocuportConstants.PASSWORD_CLIENT);
+                BrowserUtils.takeScreenshotAndSave("client_password");
                 break;
             case "employee":
                 loginPage.passwordInput.sendKeys(DocuportConstants.PASSWORD_EMPLOYEE);
                 break;
             case "advisor":
-            loginPage.passwordInput.sendKeys(DocuportConstants.PASSWORD_ADVISOR);
+                loginPage.passwordInput.sendKeys(DocuportConstants.PASSWORD_ADVISOR);
                 break;
             case "supervisor":
-            loginPage.passwordInput.sendKeys(DocuportConstants.PASSWORD_SUPERVISOR);
+                loginPage.passwordInput.sendKeys(DocuportConstants.PASSWORD_SUPERVISOR);
                 break;
             default:
                 System.out.println("This is not a valid role");
 
         }
-
-
     }
-}
+        @When("user enters credentials")
+        public void user_enters_credentials(Map<String,String> credentials) {
+
+//            for (Map.Entry <String, String> entry : credentials.entrySet()){
+//                String key = entry.getKey();
+//                System.out.println("key = " + key);
+//                String value = entry.getValue();
+//                System.out.println("value = " + value);
+
+            loginPage.loginDocuport(credentials.get("username"),credentials.get("password"));
+
+            }
+
+        }
+
+
+
+
+

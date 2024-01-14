@@ -13,6 +13,9 @@ public class GoogleSearchPage {
     @FindBy(xpath = "//input[@value='Google Search']")
     public WebElement searchButton;
 
+    @FindBy(xpath = "//a[@class='FLP8od']")
+    public WebElement capital;
+
     public GoogleSearchPage(){
         PageFactory.initElements(Driver.getDriver(),this);
     }
