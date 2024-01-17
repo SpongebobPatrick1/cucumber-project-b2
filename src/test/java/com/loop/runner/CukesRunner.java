@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         "json:target/json-reports/json-report.json"},
         features = "src/test/resources/features",
         glue = "com/loop/step_definitions",
-        dryRun = true,
+        dryRun = false,
         tags = "@smartBear",
         monochrome = true
 )
