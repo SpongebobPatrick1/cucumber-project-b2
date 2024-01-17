@@ -1,7 +1,12 @@
 Feature: practice smart bear
 
-  @smartBear
+  Background:
+    Given user login to SmartBear
+
+
+  @smartBear @B2G2-275
   Scenario: user should be able to place order and order should be seen in page
+
     Given user is already logged in and navigated to order page
     When user selects product type "FamilyAlbum"
     And user enters quantity 2
@@ -13,5 +18,5 @@ Feature: practice smart bear
     And user selects credit card type "American Express"
     And user enters credit card number "1111222233334444"
     And user enters expiration date "12/25"
-    And user enters process order button
+    And user clicks process order button and verifies success message
     Then user should see "Chuck Norris" in the first row of the table
