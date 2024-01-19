@@ -1,5 +1,6 @@
 package com.loop.step_definitions;
 
+
 import com.loop.pages.ProductPage;
 import com.loop.utilities.ConfigurationReader;
 import com.loop.utilities.Driver;
@@ -12,7 +13,7 @@ import static org.junit.Assert.assertEquals;
 
 public class ProductStepDefs {
 
-    ProductPage productPage = new ProductPage();
+   ProductPage productPage = new ProductPage();
     @Given("User is on the HomePage")
     public void user_is_on_the_home_page() {
 
