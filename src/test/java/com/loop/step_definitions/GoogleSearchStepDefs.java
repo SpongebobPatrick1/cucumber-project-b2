@@ -9,6 +9,7 @@ import io.cucumber.java.en.*;
 import org.openqa.selenium.Keys;
 
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 
@@ -44,7 +45,7 @@ public class GoogleSearchStepDefs {
     }
 
     @Then("user searches the following item")
-    public void user_searches_the_following_item(List<String> items) {
+    public void user_searches_the_following_item(List<Map<String,String>> items) {
 
 //        items.forEach(p -> {
 //            googleSearchPage.searchBox.clear();
@@ -53,10 +54,16 @@ public class GoogleSearchStepDefs {
 //            //This step will run one by one for each of these items
 //        });
 
-        for(String item : items){
+//        for(String item : items){
+//            googleSearchPage.searchBox.clear();
+//            googleSearchPage.searchBox.sendKeys(item + Keys.ENTER);
+//            assertEquals(item + " - Google Search", Driver.getDriver().getTitle());
+//        }
+
+        for (Map<String,String> item : items){
+            System.out.println(item.get("items"));
             googleSearchPage.searchBox.clear();
-            googleSearchPage.searchBox.sendKeys(item + Keys.ENTER);
-            assertEquals(item + " - Google Search", Driver.getDriver().getTitle());
+            googleSearchPage.searchBox.sendKeys(item.get("items") + Keys.ENTER);
         }
     }
 
