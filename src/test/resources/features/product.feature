@@ -1,6 +1,6 @@
 Feature: product data table practice
 
-  @ListOfMap
+  @product
   Scenario: verify each product price
     # practice List<Map<String, Sting>>
     Given User is on the HomePage
@@ -17,8 +17,8 @@ Feature: product data table practice
 
     #List has 8 elements, each element is a Map, each Map has a key and value
   #Said map in step definitions so first is taken as a key
+  @product
 
-  @ListOfList
   Scenario: verify each product price listOfList
     Given User is on the HomePage
     Then User should be able to see expected prices in following products with listOflist

@@ -6,6 +6,8 @@ import com.loop.utilities.ConfigurationReader;
 import com.loop.utilities.DocuportConstants;
 import com.loop.utilities.Driver;
 import io.cucumber.java.en.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Keys;
 
 import java.util.List;
@@ -15,16 +17,19 @@ import static org.junit.Assert.assertEquals;
 
 public class GoogleSearchStepDefs {
 
+    private static final Logger LOG = LogManager.getLogger();
     GoogleSearchPage googleSearchPage = new GoogleSearchPage();
     @Given("user is on Google search page")
     public void user_is_on_google_search_page() {
 
         Driver.getDriver().get(ConfigurationReader.getProperty("google.url"));
+        LOG.info("User is on google page");
     }
     @When("user types Loop Academy in the google search box and clicks enter")
     public void user_types_loop_academy_in_the_google_search_box_and_clicks_enter() {
 
         googleSearchPage.searchBox.sendKeys("Loop Academy" + Keys.ENTER);
+        LOG.info("User types Loop Academy");
         BrowserUtils.takeScreenshot();
     }
     @Then("user should see Loop Academy - Google Search in the google title")
@@ -37,7 +42,7 @@ public class GoogleSearchStepDefs {
     @When("user types {string} in the google search box and clicks enter")
     public void user_types_in_the_google_search_box_and_clicks_enter(String input) {
         googleSearchPage.searchBox.sendKeys(input + Keys.ENTER);
-        BrowserUtils.takeScreenshot();
+        //BrowserUtils.takeScreenshot();
     }
     @Then("user should see {string} in the google title")
     public void user_should_see_in_the_google_title(String title) {
@@ -76,7 +81,7 @@ public class GoogleSearchStepDefs {
     }
     @Then("user should see the {string} in the result")
     public void user_should_see_the_in_the_result(String capital) {
-        BrowserUtils.takeScreenshot();
+      //  BrowserUtils.takeScreenshot();
         assertEquals("Expected capital city: " + capital + " does NOT match with actual: " +
                 googleSearchPage.capital.getText(),capital,googleSearchPage.capital.getText());
     }
