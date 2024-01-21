@@ -35,10 +35,10 @@ public class LoginStepDefs {
         BrowserUtils.waitForVisibility(loginPage.continueButton, DocuportConstants.large);
         homePage.continueButton.click();
         BrowserUtils.justWait(2);
-        BrowserUtils.takeScreenshot();
+       // BrowserUtils.takeScreenshot();
         loginPage.findUserRole();
-        BrowserUtils.takeScreenshot();
-        BrowserUtils.takeScreenshotAndSave("client_profile");
+       // BrowserUtils.takeScreenshot();
+        //BrowserUtils.takeScreenshotAndSave("client_profile");
         assertEquals("User role: " + loginPage.userRole.getText() + " is not visible", loginPage.userRole.getText().toLowerCase(), DocuportConstants.CLIENT);
     }
 

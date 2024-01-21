@@ -4,18 +4,21 @@ import com.loop.utilities.BrowserUtils;
 import com.loop.utilities.DocuportConstants;
 import com.loop.utilities.Driver;
 import io.cucumber.java.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
 //Before After Scenario come from io.cucumber.java
 public class Hooks {
 
-
+    private static final Logger LOG = LogManager.getLogger();
 
     @Before
     public void setUp(Scenario scenario){
         Driver.getDriver();
         BrowserUtils.myScenario = scenario;
+        LOG.info(".............START Automation.........LOOP ACADEMY");
     }
 
     @After
@@ -28,6 +31,8 @@ public class Hooks {
         DocuportConstants.scenario = null;
 
 
-       // Driver.closeDriver();
+        Driver.closeDriver();
+        LOG.info(".............END Automation.........LOOP ACADEMY");
+
     }
 }

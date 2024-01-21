@@ -11,8 +11,9 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com/loop/step_definitions",
         dryRun = false,
-        tags = "@mapList",
-        monochrome = true
+     //   tags = "@google",
+        monochrome = true,
+        publish = true
 )
 public class CukesRunner {
 }

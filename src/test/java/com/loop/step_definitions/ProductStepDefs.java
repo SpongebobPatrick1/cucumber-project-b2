@@ -13,39 +13,32 @@ import static org.junit.Assert.assertEquals;
 
 public class ProductStepDefs {
 
-   ProductPage productPage = new ProductPage();
+    ProductPage productPage = new ProductPage();
+
     @Given("User is on the HomePage")
     public void user_is_on_the_home_page() {
-
         Driver.getDriver().get(ConfigurationReader.getProperty("product.url"));
     }
     @Then("User should be able to see expected prices in following products")
-    public void user_should_be_able_to_see_expected_prices_in_following_products(List<Map<String,String>> productDetails) {
+    public void user_should_be_able_to_see_expected_prices_in_following_products(List<Map<String, String>> productDetails) {
+        for(Map<String, String> productDetail : productDetails){
+//            System.out.println("=============Product Detail===============");
+//            System.out.println("productDetail.get(\"Category\") = " + productDetail.get("Category"));
+//            System.out.println("productDetail.get(\"Product\") = " + productDetail.get("Product"));
+//            System.out.println("productDetail.get(\"expectedPrice\") = " + productDetail.get("expectedPrice"));
 
-        /*
-        List of maps, iterating each map
-        In each map getting the Category and clicking to that category
-        In the category using getProductPrice method to get product price and providing which product it is from feature file
-         */
-        for(Map<String,String> productDetail : productDetails){
-
-            System.out.println("===============Product Detail ==================");
-            System.out.println("productDetail.get(\"Category\") = " + productDetail.get("Category"));
-            System.out.println("productDetail.get(\"Product\") = " + productDetail.get("Product"));
-            System.out.println("productDetail.get(\"expectedPrice\") = " + productDetail.get("expectedPrice"));
-
-            //click category
+            // click category
             productPage.clickCategory(productDetail.get("Category"));
 
+            // get actual price
             String actual = productPage.getProductPrice(productDetail.get("Product"));
 
-            //getProductPrice
+            // get product price
             String expectedPrice = productDetail.get("expectedPrice");
 
-            assertEquals(expectedPrice,actual);
+            assertEquals(expectedPrice, actual);
 
         }
-
     }
 
     @Then("User should be able to see expected prices in following products with listOflist")
@@ -53,19 +46,20 @@ public class ProductStepDefs {
 
         for(List<String> productDetail : productDetails){
 
-            //category
+            // category
             productPage.clickCategory(productDetail.get(0));
-            //get actual price
+
+            // get actual price
             String actualPrice = productPage.getProductPrice(productDetail.get(1));
 
-            //expected price
+            // get expected price
             String expectedPrice = productDetail.get(2);
 
-            assertEquals(expectedPrice,actualPrice);
-
+            assertEquals(expectedPrice, actualPrice);
         }
 
     }
+
 
     @Then("User should be able to see the following names in their groups")
     public void user_should_be_able_to_see_the_following_names_in_their_groups(Map<String, List<String>> students) {

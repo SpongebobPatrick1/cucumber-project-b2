@@ -82,7 +82,7 @@ public class SmartBearStepDefs {
     @When("user clicks process order button and verifies success message")
     public void user_enters_process_order_button() {
         BrowserUtils.waitForClickable(smartBearOrderPage.processButton,DocuportConstants.large).click();
-        BrowserUtils.takeScreenshot();
+      //  BrowserUtils.takeScreenshot();
         assertEquals("The new order was NOT added", smartBearOrderPage.successMessage.getText(),ConfigurationReader.getProperty("smart.success"));
 
     }
@@ -90,7 +90,7 @@ public class SmartBearStepDefs {
     public void user_should_see_in_the_first_row_of_the_table(String name) { // Chuck Norris
 
         BrowserUtils.waitForClickable(smartBearOrderPage.viewAllOrders,DocuportConstants.large).click();
-        BrowserUtils.takeScreenshot();
+       // BrowserUtils.takeScreenshot();
         assertEquals("The actual name" + smartBearViewAllOrdersPage.firstRowName.getText() + "does NOT match the expected name: " + name, smartBearViewAllOrdersPage.firstRowName.getText(),name);
 
     }
