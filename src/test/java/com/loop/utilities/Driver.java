@@ -14,7 +14,6 @@ public class Driver {
     */
 
     private Driver(){
-
     }
 
     /*
@@ -36,6 +35,7 @@ public class Driver {
      * @author jaad
      */
 
+    // public getter example of encapsulation in framework
     public static WebDriver getDriver(){
         if (driverPool.get() == null) {
             String browserType = ConfigurationReader.getProperty("browser");
