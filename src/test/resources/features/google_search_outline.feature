@@ -1,4 +1,4 @@
-Feature: Scenario outline practice
+Feature: Google Search Outline
 
   @googleSearchOutline @multithread
   Scenario Outline: Google search for capital cities
@@ -7,7 +7,7 @@ Feature: Scenario outline practice
     Then user should see the "<capital>" in the result
     Examples:
       | country     | capital         |
-      | Azberjan    | Baku            |
+      | Azberjan    | Baku1            |
       | Ukraine     | Kyiv            |
       | Afghanistan | Kabul           |
       | USA         | Washington, D.C. |
