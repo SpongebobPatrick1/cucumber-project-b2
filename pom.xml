@@ -98,11 +98,11 @@
 
 
         <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
-        <dependency>
-            <groupId>io.github.bonigarcia</groupId>
-            <artifactId>webdrivermanager</artifactId>
-            <version>5.6.2</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>io.github.bonigarcia</groupId>-->
+<!--            <artifactId>webdrivermanager</artifactId>-->
+<!--            <version>5.6.2</version>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>com.github.javafaker</groupId>
@@ -135,12 +135,7 @@
             <artifactId>maven-cucumber-reporting</artifactId>
             <version>5.7.0</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-devtools-v86 -->
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-devtools-v86</artifactId>
-            <version>4.0.0-beta-2</version>
-        </dependency>
+
 
     </dependencies>
 

@@ -1,6 +1,6 @@
 package com.loop.utilities;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+//import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -46,13 +46,13 @@ public class Driver {
             String browserType = ConfigurationReader.getProperty("browser");
             switch (browserType.toLowerCase()){
                 case "chrome":
-                    WebDriverManager.chromedriver().setup();
+                    //WebDriverManager.chromedriver().setup();
                     driverPool.set(new ChromeDriver());
                     driverPool.get().manage().window().maximize();
                     driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(Integer.valueOf(ConfigurationReader.getProperty("timeout"))));
                     break;
                 case "firefox":
-                    WebDriverManager.firefoxdriver().setup();
+                   // WebDriverManager.firefoxdriver().setup();
                     driverPool.set(new FirefoxDriver());
                     driverPool.get().manage().window().maximize();
                     driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(Integer.valueOf(ConfigurationReader.getProperty("timeout"))));
@@ -61,7 +61,7 @@ public class Driver {
                     ChromeOptions options = new ChromeOptions();
                     options.addArguments("--headless"); // enable headless mode
                     options.addArguments("--start-maximized"); //maximize
-                    WebDriverManager.chromedriver().setup();
+                  //  WebDriverManager.chromedriver().setup();
                     driverPool.set(new ChromeDriver(options)); // will setup with these options
                     driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(Integer.valueOf(ConfigurationReader.getProperty("timeout"))));
                     break;
@@ -69,13 +69,13 @@ public class Driver {
                     FirefoxOptions optionsFirefox = new FirefoxOptions();
                     optionsFirefox.addArguments("--headless"); // enable headless mode
                     optionsFirefox.addArguments("--start-maximized"); //maximize
-                    WebDriverManager.firefoxdriver().setup();
+                 //   WebDriverManager.firefoxdriver().setup();
                     driverPool.set(new FirefoxDriver(optionsFirefox)); // will setup with these options
                     driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(Integer.valueOf(ConfigurationReader.getProperty("timeout"))));
                     break;
 
                 case "chrome-linux":
-                    WebDriverManager.chromedriver().setup();
+                  //  WebDriverManager.chromedriver().setup();
                     ChromeOptions chromeOptions = new ChromeOptions();
                     chromeOptions.addArguments("--headless");
                     chromeOptions.addArguments("--no-sandbox");
