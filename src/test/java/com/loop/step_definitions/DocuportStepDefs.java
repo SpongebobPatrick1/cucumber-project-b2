@@ -5,6 +5,7 @@ import com.loop.pages.LeadsPage;
 import com.loop.pages.LoginPage;
 import com.loop.utilities.BrowserUtils;
 import com.loop.utilities.DocuportConstants;
+import com.loop.utilities.Driver;
 import io.cucumber.java.en.Then;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -19,7 +20,9 @@ public class DocuportStepDefs {
 
     @Then("rows per page shows by default {int}")
     public void rows_per_page_shows_by_default(Integer defaultRowsPerPage) {
-
+        System.out.println(Driver.getDriver().getCurrentUrl());
+         Integer actualRowsPerPage = leadsPage.getRowsPerPageAmount();
+        System.out.println(actualRowsPerPage);
         defaultRowsPerPage = 10;
         BrowserUtils.takeScreenshot();
         //assertEquals(defaultRowsPerPage,leadsPage.getRowsPerPageAmount()); //Gets current amount
