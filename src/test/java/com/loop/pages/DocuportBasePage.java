@@ -49,8 +49,8 @@ public class DocuportBasePage {
               //  BrowserUtils.justWait(1);
                 WebElement homeButton = Driver.getDriver().findElement(By.xpath("//span[.='Home']"));
                 BrowserUtils.waitForVisibility(home,DocuportConstants.large);
-                BrowserUtils.waitForClickable(home, DocuportConstants.large);
-                BrowserUtils.clickWithJS(home);
+                BrowserUtils.waitForClickable(home, DocuportConstants.large).click();
+                //BrowserUtils.clickWithJS(home);
                 // Alternatively, you can try clicking with JavaScript if the normal click fails
                 // BrowserUtils.clickWithJS(homeButton);
                 break;
@@ -63,13 +63,15 @@ public class DocuportBasePage {
             case "leads":
                 WebElement leadsButton = Driver.getDriver().findElement(By.xpath("//span[.='Leads']"));
                 BrowserUtils.waitForVisibility(leadsButton, 10);
-                BrowserUtils.clickWithJS(leadsButton);
+                BrowserUtils.waitForClickable(leadsButton,DocuportConstants.large).click();
+             //   BrowserUtils.clickWithJS(leadsButton);
                 break;
             case "users":
                 try {
-                    WebElement usersButton = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20))
-                            .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[.='Users']")));
-                    BrowserUtils.clickWithJS(usersButton);
+                    WebElement usersButton = Driver.getDriver().findElement(By.xpath("//span[.='Users']"));
+                    BrowserUtils.waitForVisibility(usersButton, 10);
+                    BrowserUtils.waitForClickable(usersButton,DocuportConstants.large).click();
+              //      BrowserUtils.clickWithJS(usersButton);
                 } catch (TimeoutException e) {
                     System.out.println("Timeout exception occurred while waiting for the Users button to be visible.");
                     // Handle the exception as needed, such as logging or retrying the action
