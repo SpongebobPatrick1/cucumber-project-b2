@@ -48,7 +48,7 @@
                             <outputDirectory>${project.build.directory}</outputDirectory>
                             <inputDirectory>${project.build.directory}</inputDirectory>
                             <jsonFiles>
-                                <param>**/json-report*.json</param>
+                                <param>**/json-report.json</param>
                             </jsonFiles>
                         </configuration>
                     </execution>
