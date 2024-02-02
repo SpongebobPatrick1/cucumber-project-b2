@@ -19,7 +19,7 @@ public class DocuportStepDefs {
     @Then("rows per page shows by default {int}")
     public void rows_per_page_shows_by_default(Integer defaultRowsPerPage) {
 
-        defaultRowsPerPage = 10;
+        defaultRowsPerPage = 5;
         BrowserUtils.takeScreenshot();
         assertEquals(defaultRowsPerPage,leadsPage.getRowsPerPageAmount()); //Gets current amount
     }
