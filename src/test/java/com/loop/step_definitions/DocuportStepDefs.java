@@ -47,6 +47,7 @@ public class DocuportStepDefs {
 
     @Then("rows per page shows by default {int} at {string}")
     public void rows_per_page_shows_by_default_at(Integer expectedNumberOfRows, String headerText) {
+        BrowserUtils.justWait(5);
         System.out.println(Driver.getDriver().getCurrentUrl());
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
        // wait.until(ExpectedConditions.textToBePresentInElement(Driver.getDriver().findElement(By.tagName("h1")), headerText));
