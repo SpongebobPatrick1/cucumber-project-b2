@@ -10,7 +10,7 @@ Feature: Google Search Outline
       | Azberjan    | Baku            |
       | Ukraine     | Kyiv             |
       | Afghanistan | Kabul            |
-      | USA         | Washington, DC. |
+      | USA         | Washington, D.C. |
       | Turkiye     | Ankara           |
       | Uzbekistan  | Tashkent         |
 
