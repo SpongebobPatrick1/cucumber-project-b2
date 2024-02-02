@@ -1,6 +1,7 @@
 package com.loop.step_definitions;
 
 import com.loop.pages.HomePage;
+import com.loop.pages.LeadsPage;
 import com.loop.pages.LoginPage;
 import com.loop.utilities.BrowserUtils;
 import com.loop.utilities.ConfigurationReader;
@@ -17,6 +18,7 @@ public class LoginStepDefs {
 
     LoginPage loginPage = new LoginPage();
     HomePage homePage = new HomePage();
+    LeadsPage leadsPage = new LeadsPage();
 
     @Given("user is on Docuport login page")
     public void user_is_on_docuport_login_page() {
@@ -159,7 +161,14 @@ public class LoginStepDefs {
 
                     BrowserUtils.waitForClickable(new HomePage().userMenu, DocuportConstants.large);
                 }
-            }
+
+
+
+
+
+
+
+}
 
 
 

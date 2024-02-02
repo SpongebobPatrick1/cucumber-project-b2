@@ -56,6 +56,16 @@ public class DocuportBasePage {
                 BrowserUtils.clickWithJS(invitationButton);
                 //invitationButton.click();
                 break;
+            case "leads":
+                WebElement leadsButton = Driver.getDriver().findElement(By.xpath("//span[.='Leads']"));
+                BrowserUtils.waitForVisibility(leadsButton, 5);
+                BrowserUtils.clickWithJS(leadsButton);
+                break;
+            case "users":
+                WebElement usersButton = Driver.getDriver().findElement(By.xpath("//span[.='Users']"));
+                BrowserUtils.waitForVisibility(usersButton, 5);
+                BrowserUtils.clickWithJS(usersButton);
+                break;
             default:
                 LOG.error("No such " + button + "exists");
                 throw new IllegalArgumentException();

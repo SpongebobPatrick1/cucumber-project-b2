@@ -32,7 +32,7 @@ public class ClientStepDefs {
     }
     @Then("user clicks {string} button")
     public void user_clicks_button(String button) {
-        BrowserUtils.waitForInvisibility(clientPage.continueButton, DocuportConstants.large);
+      //  BrowserUtils.waitForInvisibility(clientPage.continueButton, DocuportConstants.large);
         DocuportBasePage.clickButton(button);
     }
     @Then("user validates all soft assertions")
