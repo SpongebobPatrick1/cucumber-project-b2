@@ -20,6 +20,7 @@ public class DocuportStepDefs {
     public void rows_per_page_shows_by_default(Integer defaultRowsPerPage) {
 
         defaultRowsPerPage = 10;
+        BrowserUtils.takeScreenshot();
         assertEquals(defaultRowsPerPage,leadsPage.getRowsPerPageAmount()); //Gets current amount
     }
     @Then("change rows per page to {int}")
@@ -28,6 +29,7 @@ public class DocuportStepDefs {
         BrowserUtils.waitForClickable(leadsPage.rowsPerPageAmount, DocuportConstants.large).click();
         BrowserUtils.waitForVisibility(leadsPage.rowsPerPageList.get(0),DocuportConstants.large);
         leadsPage.changeRowsPerPageAmount(expectedRowsPerPage);
+        BrowserUtils.takeScreenshot();
         assertEquals(expectedRowsPerPage,leadsPage.getRowsPerPageAmount()); //Validate rows per page was changed
     }
 }
