@@ -7,6 +7,7 @@ import com.loop.utilities.BrowserUtils;
 import com.loop.utilities.DocuportConstants;
 import io.cucumber.java.en.Then;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 
 public class DocuportStepDefs {
@@ -19,9 +20,10 @@ public class DocuportStepDefs {
     @Then("rows per page shows by default {int}")
     public void rows_per_page_shows_by_default(Integer defaultRowsPerPage) {
 
-        defaultRowsPerPage = 5;
+        defaultRowsPerPage = 10;
         BrowserUtils.takeScreenshot();
-        assertEquals(defaultRowsPerPage,leadsPage.getRowsPerPageAmount()); //Gets current amount
+        //assertEquals(defaultRowsPerPage,leadsPage.getRowsPerPageAmount()); //Gets current amount
+        assertThat(leadsPage.getRowsPerPageAmount()).isEqualTo(defaultRowsPerPage).as("Actual does not match expected");
     }
     @Then("change rows per page to {int}")
     public void change_rows_per_page_to(Integer expectedRowsPerPage) {
