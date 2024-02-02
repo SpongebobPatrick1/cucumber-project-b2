@@ -1,6 +1,6 @@
 Feature: Different functions of Docuport
 
-  @day20
+  @day20 @ui
 Scenario: Change Rows Per Page
 Given user is on docuport homepage of "advisor"
 Then user clicks "Leads" button

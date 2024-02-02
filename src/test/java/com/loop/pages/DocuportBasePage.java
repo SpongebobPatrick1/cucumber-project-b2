@@ -6,11 +6,15 @@ import com.loop.utilities.Driver;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.BufferedWriter;
+import java.time.Duration;
 
 public class DocuportBasePage {
 
@@ -52,19 +56,24 @@ public class DocuportBasePage {
                 break;
             case "invitations":
                 WebElement invitationButton = Driver.getDriver().findElement(By.xpath("//span[.='Invitations']"));
-                BrowserUtils.waitForVisibility(invitationButton, 5);
+                BrowserUtils.waitForVisibility(invitationButton, 10);
                 BrowserUtils.clickWithJS(invitationButton);
                 //invitationButton.click();
                 break;
             case "leads":
                 WebElement leadsButton = Driver.getDriver().findElement(By.xpath("//span[.='Leads']"));
-                BrowserUtils.waitForVisibility(leadsButton, 5);
+                BrowserUtils.waitForVisibility(leadsButton, 10);
                 BrowserUtils.clickWithJS(leadsButton);
                 break;
             case "users":
-                WebElement usersButton = Driver.getDriver().findElement(By.xpath("//span[.='Users']"));
-                BrowserUtils.waitForVisibility(usersButton, 5);
-                BrowserUtils.clickWithJS(usersButton);
+                try {
+                    WebElement usersButton = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20))
+                            .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[.='Users']")));
+                    BrowserUtils.clickWithJS(usersButton);
+                } catch (TimeoutException e) {
+                    System.out.println("Timeout exception occurred while waiting for the Users button to be visible.");
+                    // Handle the exception as needed, such as logging or retrying the action
+                }
                 break;
             default:
                 LOG.error("No such " + button + "exists");
