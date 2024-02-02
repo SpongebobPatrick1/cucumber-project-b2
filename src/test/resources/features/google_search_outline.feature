@@ -6,11 +6,11 @@ Feature: Google Search Outline
     When user searches for the "<country>"
     Then user should see the "<capital>" in the result
     Examples:
-      | country     | capital         |
-      | Azberjan    | Baku1            |
-      | Ukraine     | Kyiv            |
-      | Afghanistan | Kabul           |
-      | USA         | Washington, D.C. |
-      | Turkiye     | Ankara          |
-      | Uzbekistan  | Tashkent        |
+      | country     | capital          |
+      | Azberjan    | Baku            |
+      | Ukraine     | Kyiv             |
+      | Afghanistan | Kabul            |
+      | USA         | Washington, DC. |
+      | Turkiye     | Ankara           |
+      | Uzbekistan  | Tashkent         |
 

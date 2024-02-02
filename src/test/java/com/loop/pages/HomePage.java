@@ -7,8 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class HomePage {
 
-    @FindBy(xpath = "//button[@type='submit']")
-    public WebElement continueButton;
+
 
     @FindBy(xpath = "//span[.='Batch1 Group1']")
     public WebElement b1g1;
@@ -16,6 +15,8 @@ public class HomePage {
     @FindBy(xpath = "//span[.='Home']")
     public WebElement home;
 
+    @FindBy(xpath = "//div[@class='v-avatar primary']")
+    public WebElement userMenu;
     public HomePage() {
         PageFactory.initElements(Driver.getDriver(),this);
     }

@@ -21,6 +21,16 @@ public class BrowserUtils {
 
     public static Scenario myScenario;
 
+    public static Duration currentImplicitWaitTime;
+    public static void setImplicitWaitToZero(){
+        currentImplicitWaitTime = Driver.getDriver().manage().timeouts().getImplicitWaitTimeout();
+        Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ZERO);
+    }
+
+    public static void resetImplicitWait(){
+        Driver.getDriver().manage().timeouts().implicitlyWait(currentImplicitWaitTime);
+    }
+
     /**
      * @author Jaad
      * Takes a screenshot at that specific scenario
@@ -150,12 +160,14 @@ public class BrowserUtils {
      * @author jaad
      */
     public static WebElement waitForVisibility(WebElement element, int timeToWaitInSec){
+        setImplicitWaitToZero();
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(),Duration.ofSeconds(timeToWaitInSec));
+        resetImplicitWait();
         return wait.until(ExpectedConditions.visibilityOf(element));
     }
 
     /**
-     * Waits for the provided elemen t to be invisible on the page
+     * Waits for the provided element to be invisible on the page
      * @param element
      * @param timeToWaitInSec
      * @return void

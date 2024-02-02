@@ -31,7 +31,7 @@ public class Hooks {
         DocuportConstants.scenario = null;
 
 
-        Driver.closeDriver();
+     //   Driver.closeDriver();
         LOG.info(".............END Automation.........LOOP ACADEMY");
 
     }
