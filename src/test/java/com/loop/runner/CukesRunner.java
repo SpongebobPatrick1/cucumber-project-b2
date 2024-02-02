@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
         features = "src/test/resources/features",
         glue = "com/loop/step_definitions",
-        dryRun = true,
+        dryRun = false,
         tags = "@day20",
         monochrome = true,
         publish = false
