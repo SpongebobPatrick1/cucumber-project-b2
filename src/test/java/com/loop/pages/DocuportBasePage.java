@@ -63,15 +63,15 @@ public class DocuportBasePage {
             case "leads":
                 WebElement leadsButton = Driver.getDriver().findElement(By.xpath("//span[.='Leads']"));
                 BrowserUtils.waitForVisibility(leadsButton, 10);
-                BrowserUtils.waitForClickable(leadsButton,DocuportConstants.large).click();
-             //   BrowserUtils.clickWithJS(leadsButton);
+                // BrowserUtils.waitForClickable(leadsButton,DocuportConstants.large).click();
+                BrowserUtils.clickWithJS(leadsButton);
                 break;
             case "users":
                 try {
                     WebElement usersButton = Driver.getDriver().findElement(By.xpath("//span[.='Users']"));
                     BrowserUtils.waitForVisibility(usersButton, 10);
-                    BrowserUtils.waitForClickable(usersButton,DocuportConstants.large).click();
-              //      BrowserUtils.clickWithJS(usersButton);
+             //       BrowserUtils.waitForClickable(usersButton,DocuportConstants.large).click();
+                    BrowserUtils.clickWithJS(usersButton);
                 } catch (TimeoutException e) {
                     System.out.println("Timeout exception occurred while waiting for the Users button to be visible.");
                     // Handle the exception as needed, such as logging or retrying the action
