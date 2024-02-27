@@ -65,7 +65,7 @@ public class Driver {
                     driverPool.set(new ChromeDriver(options)); // will setup with these options
                     driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(Integer.valueOf(ConfigurationReader.getProperty("timeout"))));
                     break;
-                case "headless-firef0x":
+                case "headless-firefox":
                     FirefoxOptions optionsFirefox = new FirefoxOptions();
                     optionsFirefox.addArguments("--headless"); // enable headless mode
                     optionsFirefox.addArguments("--start-maximized"); //maximize
